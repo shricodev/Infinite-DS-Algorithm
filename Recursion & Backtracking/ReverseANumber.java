@@ -7,7 +7,7 @@ public class ReverseANumber {
 
         // for a single digit there is no sense in repeating. so this is the base case.
         if (n % 10 == n) {
-            System.out.println(n);
+            System.out.print(n);
             return;
         }
 

@@ -7,7 +7,7 @@ public class CountZero {
         // System.out.println(count);
 
         // METHOD TWO
-        System.out.println(methodTwo(1020300, 0));
+        System.out.println(methodTwo(10203009, 0));
 
 
     }
@@ -16,7 +16,7 @@ public class CountZero {
 
     static void countZero(int n) {
 
-        // this does work as well.
+        // baase condition
         if (n == 0) {
             return;
         }

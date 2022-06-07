@@ -3,13 +3,13 @@ package DataSructures.arrays;
 public class CheckElemInArray {
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 56, 65, 7, 98, 0};
-        System.out.println(findElem(arr, 100, 0));
+        System.out.println(findElem(arr, 0, 0));
     }
 
     static boolean findElem(int[] arr, int target, int index) {
 
         // base condition.
-        if (index >= arr.length) {
+        if (index == arr.length) {
             return false;
         }
 

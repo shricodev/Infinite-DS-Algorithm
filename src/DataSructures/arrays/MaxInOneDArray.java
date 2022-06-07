@@ -25,7 +25,7 @@ public class MaxInOneDArray {
 
     static void findMaxRecursion(int[] arr, int index) {
 
-        if (index >= arr.length) {
+        if (index == arr.length) {
             return;
         }
 

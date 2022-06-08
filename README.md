@@ -1,4 +1,4 @@
-# 90DaysOfDSA
+# InfiniteDaysOfDSA
 
 ### Roadmap:
 

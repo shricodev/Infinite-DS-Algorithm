@@ -1,0 +1,1 @@
+- Binary search to find peak element in a sorted rotated array.

@@ -1,4 +1,4 @@
-package Searching.BinarySearching;
+package Searching.BinarySearching.OneDArray;
 
 public class OrderAgnosticBinarySearchToFindN {
     public static void main(String[] args) {

@@ -1,8 +1,8 @@
-package Searching.BinarySearching;
+package Searching.BinarySearching.OneDArray;
 
 public class SearchNOneDArrIteration {
     public static void main(String[] args) {
-        int[] arr = {1,2,3,4,5,6,7,89};
+        int[] arr = {1,2,3,4,5,6,7,8};
         System.out.println(binarySearch(arr, 5));
     }
 

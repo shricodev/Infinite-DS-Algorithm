@@ -1,4 +1,4 @@
-package Searching.BinarySearching;
+package Searching.BinarySearching.OneDArray;
 
 public class CeilingOfANumberOneDArr {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package DataSructures.arrays;
+package DataSructures.Arrays;
 
 public class MaxInOneDArray {
     public static void main(String[] args) {

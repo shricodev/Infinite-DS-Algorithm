@@ -26,8 +26,7 @@ public class PeakIndexInMountainArr_LC {
         // so if we find a point when the mid is greater than the mid + 1 then we need to start looking in
         // the right portion. since we are in the descending order of the array.
         if (arr[mid] > arr[mid + 1]) {
-            end = mid;
-            return findPeakIndxRcrsn(arr, start, end);
+            return findPeakIndxRcrsn(arr, start, mid);
         }
 
         // if not then we are in the ascending order so start is going to be the mid + 1 index.

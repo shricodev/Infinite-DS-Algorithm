@@ -6,21 +6,22 @@ public class SmallestLetterGreaterThanTarget_LC {
     // QN: https://leetcode.com/problems/find-smallest-letter-greater-than-target/
 
     public static void main(String[] args) {
-        char[] arr = {'a', 'b', 'd', 'f', 'g'};
-        // System.out.println(smallLetterGreaterRecursive(arr, 'g', 0, arr.length - 1));
-        System.out.println(smallLetterGreaterIterative(arr, 'g'));
+        char[] arr = {'g'};
+        System.out.println(smallLetterGreaterRecursive(arr, 'g', 0, arr.length - 1));
+        // System.out.println(smallLetterGreaterIterative(arr, 'd'));
     }
 
     static char smallLetterGreaterRecursive(char arr[], char target, int start, int end) {
         
-        // this will handle the edge case.
+        // this will handle the edge case. what if the arr consist of a single element.
+        // this handles also the case when we need to return the first element in the array when the 
+        //  target element is in the last index of the array.
         if (start == arr.length) {
             return arr[0];
         }
 
+        // this handle all the normal case when the target letter is not in the end of the array. 
         if (start > end) {
-            // if we want to return the index then just return the start.
-            // this handle all the normal case when the target letter is not in the end of the array. 
             return arr[start];
         }
 

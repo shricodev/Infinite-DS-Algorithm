@@ -1,4 +1,4 @@
-package DataSructures.arrays;
+package DataSructures.Arrays;
 
 // link: https://leetcode.com/problems/richest-customer-wealth/
 public class RichestCustomerWealth_LC {

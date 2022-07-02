@@ -8,7 +8,7 @@ import java.util.Arrays;
 public class FirstAndLastPosnOfElemInSortedArray_LC {
 
     public static void main(String[] args) {
-        int[] nums = {1,2,3,4,10,12,10,11};
+        int[] nums = {1,2,3,4,10,10,12};
         System.out.println(Arrays.toString(searchRange(nums, 10)));
     }
 
@@ -25,14 +25,15 @@ public class FirstAndLastPosnOfElemInSortedArray_LC {
         int end = nums.length - 1;
 
         while (start <= end) {
+            
             int mid = start + (end - start) / 2;
+
             if (nums[mid] >= target) {
                 end = mid - 1;
+                index = mid;
+
             } else 
                 start = mid + 1;
-            if (nums[mid] == target) {
-                index = mid;
-            }
         }
         return index;
     }
@@ -43,16 +44,17 @@ public class FirstAndLastPosnOfElemInSortedArray_LC {
         int end = nums.length - 1;
 
         while (start <= end) {
+
             int mid = start + (end - start) / 2;
+
             if (nums[mid] <= target) {
                 start = mid + 1;
+                index = mid;
+
             } else {
                 end = mid - 1;
             }
-            if (nums[mid] == target) {
-                index = mid;
-            }
-            }
+        }
         return index;
     }
 }

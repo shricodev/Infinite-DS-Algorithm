@@ -1,4 +1,4 @@
-package DataSructures.arrays;
+package DataSructures.Arrays;
 
 public class NoOfElemInArrayWithEvenDigits_LC {
     public static void main(String[] args) {   

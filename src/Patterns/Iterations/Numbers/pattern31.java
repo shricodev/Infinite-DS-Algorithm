@@ -2,13 +2,13 @@ package Patterns.Iterations.Numbers;
 
 public class pattern31 {
     public static void main(String[] args) {
-        draw(4);
+        draw(3);
     }
 
     /*
          4 4 4 4 4 4 4  
          4 3 3 3 3 3 4   
-         4 3 2 2 2 3 4   
+         4 3 2 2 2 3 4
          4 3 2 1 2 3 4   
          4 3 2 2 2 3 4   
          4 3 3 3 3 3 4   
@@ -28,10 +28,10 @@ public class pattern31 {
                 int down = n - row;
                 // the minimum of all these indices is the answer.
                 // this will print from outer border 0
-                int minAmongAll = Math.min(Math.min(left, right), Math.min(up, down));
+                int maxAmongAll = Math.max(Math.max(left, right), Math.max(up, down));
                 // this willl print from outer border n
                 // int maxAmongAll = Math.max(Math.max(left, right), Math.max(up, down));
-                System.out.print(minAmongAll + " ");  
+                System.out.print(maxAmongAll + " ");  
                 // System.out.print(maxAmongAll + " ");  
             }
             System.out.println();

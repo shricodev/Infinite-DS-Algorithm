@@ -1,7 +1,7 @@
 package Sorting.Cyclic;
 
 
-public class MissingNumber {
+public class MissingNumber_LC {
     public static void main(String[] args) {
         int[] arr = {0, 3, 5, 1, 4};
         System.out.println(findMissing(arr));

@@ -2,7 +2,7 @@ package Sorting.Bubble;
 
 import java.util.Arrays;
 
-public class SortArr {
+public class SortArr_IT {
     public static void main(String[] args) {
         // int[] arr1 = {1,2,5,4,8,9};
         int[] arr2 = { 5, 7, 9, 7, 4, 1 };

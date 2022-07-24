@@ -2,7 +2,7 @@ package Patterns.Iterations.Numbers;
 
 public class pattern21_Floyd_Triangle {
     public static void main(String[] args) {
-        draw(7);
+        draw(5);
     }
     
     /*

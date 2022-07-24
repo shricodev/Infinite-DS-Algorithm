@@ -7,7 +7,8 @@ import java.util.Arrays;
 // avg/best time complexity: O(Nlogn)
 // worst time complexity: O(N^2)
 
-// space complexity: O(1)
+// space complexity: O(n)
+
 
 public class QuickSort_RC {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package Practice;
+package DataSructures.Arrays;
 
 import java.util.ArrayList;
 

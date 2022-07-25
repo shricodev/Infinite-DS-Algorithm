@@ -7,7 +7,9 @@ public class SubsequencesOfString {
         
         // printSubsequencesString("", "abc");
         // System.out.println(subsequencesArrayList("", "abc"));
-        System.out.println(subsequences("abc"));
+        // System.out.println(subsequences("abc"));
+        System.out.println(subseqFind("abc"));
+
     }
 
     static void printSubsequencesString(String processed, String unProcess) {
@@ -35,7 +37,39 @@ public class SubsequencesOfString {
         return ans;
     }
 
+    
+    static ArrayList<String> subseqFind(String str) {
+        ArrayList<String> ans = new ArrayList<>();
+        String output = "";
+        int index = 0;
+        solve(ans, output, index, str);
+        return ans;
+    }
 
+    private static void solve(ArrayList<String> ans, String output, int index, String s) {
+
+        if (index >= s.length()) {
+            ans.add(output);
+            return;
+        }
+
+        // for include
+        // if we do this way we need to remove the element from output as well.
+        output = output + s.charAt(index);
+        solve(ans, output, index + 1, s);
+
+        // this is the better way.
+        // char ch = s.charAt(index);
+        // solve(ans, output + ch, index + 1, s);
+        
+
+        // removing the last char from the string.
+        output = output.substring(0, output.length() - 1);
+
+        // exclude
+        solve(ans, output, index + 1 , s);
+    }
+    
     private static void subseqArrayList(String s, String output, ArrayList<String> ans, int index) {
 
         if (index >= s.length()) {
@@ -51,4 +85,6 @@ public class SubsequencesOfString {
         subseqArrayList(s, output, ans, index + 1);
 
     }
+
+
 }

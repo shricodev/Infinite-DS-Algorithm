@@ -1,14 +1,14 @@
-package Recursions.Strings;
+package Recursions.Subsets_Subsequence;
 
 import java.util.ArrayList;
 
 public class SubsequencesOfString {
     public static void main(String[] args) {
         
-        // printSubsequencesString("", "abc");
+        printSubsequencesString("", "abc");
         // System.out.println(subsequencesArrayList("", "abc"));
         // System.out.println(subsequences("abc"));
-        System.out.println(subseqFind("abc"));
+        // System.out.println(subseqFind("abc"));
 
     }
 

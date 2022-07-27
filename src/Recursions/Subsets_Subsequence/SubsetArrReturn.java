@@ -1,4 +1,4 @@
-package Recursions;
+package Recursions.Subsets_Subsequence;
 
 import java.util.ArrayList;
 
@@ -29,15 +29,17 @@ public class SubsetArrReturn {
 
         // include 
         output.add(arr.get(index));
-        solve(arr, index + 1, ans, new ArrayList<>(output));
-
+        // sending the copy of the output array.
+        ArrayList<Integer> op1 = new ArrayList<>(output);
+        solve(arr, index + 1, ans, op1);
+        
         // if the include is done first it is compulsion to remove the last elem.
         // else if the exclude is done first then there is no need of the removal of the last element.
         output.remove(output.size() - 1);
-
+        
         // exclude
-        solve(arr, index + 1 , ans, new ArrayList<>(output));
-
-
+        // sending the copy of the output array.
+        ArrayList<Integer> op2 = new ArrayList<>(output);
+        solve(arr, index + 1 , ans, op2);
     }
 }

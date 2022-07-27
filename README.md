@@ -1,6 +1,6 @@
 # InfiniteDaysOfDSA
 
-### Roadmap:  
+### Roadmap:
 
 ![roadmap](./assets/roadmap.png)
 

@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class SubSetUniquePrint {
     public static void main(String[] args) {
-        int arr[] = { 2, 1, 2 };
+        int arr[] = { 3, 1, 2 };
 
         // make sure to sort the array before calling the function 
         Arrays.sort(arr);
@@ -15,7 +15,7 @@ public class SubSetUniquePrint {
 
     private static void subsetPrint(int ind, ArrayList<Integer> ds, int[] arr) {
 
-        if (ind == arr.length) {
+        if (ind >= arr.length) {
             System.out.println(ds);
             return;
         }

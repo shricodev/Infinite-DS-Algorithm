@@ -69,11 +69,12 @@ public class CombinationSum2 {
         // for include
         if (arr[index] <= target) {
             output.add(arr[index]);
+            // we are increasing the index once taken since no dup element available in one combn.
             solveApproach2(index + 1, target - arr[index], arr, output, ans);
             output.remove(output.size() - 1);
         }
 
-        // for exclude
+        // for exclude. this makes the combination sum 2 diff from one.
         while (index + 1 < arr.length && arr[index] == arr[index + 1]) index++;
 
         solveApproach2(index + 1, target, arr, output, ans);

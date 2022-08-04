@@ -44,8 +44,9 @@ public class CountZero {
 
         if (n % 10 == 0) {
             return methodTwo(n / 10, zerocount + 1);
-        } else {
-            return methodTwo(n / 10, zerocount);
         }
+        
+        return methodTwo(n / 10, zerocount);
+        
     }
 }

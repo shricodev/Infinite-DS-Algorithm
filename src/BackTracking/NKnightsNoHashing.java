@@ -9,7 +9,7 @@ public class NKnightsNoHashing {
 
         // adding the "." to the matrix.
         for (char[] row : mat) {
-            Arrays.fill(row, '.');
+        Arrays.fill(row, '.');
         }
         System.out.println("The count is: " + nKnights(mat, 0));
     }

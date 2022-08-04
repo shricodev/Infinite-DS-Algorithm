@@ -18,7 +18,8 @@ public class Permutation {
     static void solve(int index, int[] arr, ArrayList<ArrayList<Integer>> ans) {
         
         // base condition
-        if (index >= arr.length) {
+        // if there is only one character in the string left then no need to swap it with itself.
+        if (index >= arr.length - 1) {
             ArrayList<Integer> ds = new ArrayList<>();
 
             // adding the array elem to the ds so we can add the ds to the ans.
@@ -31,8 +32,10 @@ public class Permutation {
         }
 
         // since all the elements in the array is swapped from index to the length of the array.
+        // the main idea is that we are placing each element in the first index, second index and so on.
         for (int i = index; i < arr.length; i++) {
-            swap(i, index, arr);
+            
+            swap(index, i, arr);
             // recursive leap of faith
             solve(index + 1, arr, ans);
             // reswapping the element in the index of the array.

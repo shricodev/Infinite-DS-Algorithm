@@ -51,18 +51,15 @@ public class SudokuSolve {
 
                             // at last since all the values of the sudoku will be placed so for the last recursion 
                             // call will have no '.' so the method returns true;
-                            if (solve(sudokuBrd)) {
+                            // if the recursion returns true then just do not backtrack and remove the element
+                            if (solve(sudokuBrd)) return true;
 
-                                return true;
-
-                            } else {
-                                // if the placement of the element is wrong then backtrack to remove the added value;
-                                sudokuBrd[row][col] = '.';
-                            }
+                            // backtrack to remove the added value;
+                            sudokuBrd[row][col] = '.';
                         }
                     }
+                    // if we cannot place a element in the index then just return a false;
                     return false;
-
                 }
             }
         }

@@ -15,7 +15,7 @@ public class MissingNumber_LC {
 
             int correctIndx4IthElem = nums[ithInd];
 
-            // if the nums[ithInd] is equal to the size of the array then there is no index 
+            // if the nums[ithInd] is equal or greater than the size of the array then there is no index 
             // so just ignore.
             if(correctIndx4IthElem < nums.length && nums[ithInd] != nums[correctIndx4IthElem]) {
                 swap(nums, ithInd, correctIndx4IthElem);

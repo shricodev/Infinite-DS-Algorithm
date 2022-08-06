@@ -6,8 +6,8 @@ import java.util.Arrays;
 public class CombinationSum2 {
     public static void main(String[] args) {
         int[] arr = {10,1,2,7,6,1,5};
-        // System.out.println(subsetApproach1(arr));
-        System.out.println(subsetApproach2(arr));
+        System.out.println(subsetApproach1(arr));
+        // System.out.println(subsetApproach2(arr));
     }
 
     // APPROACH FIRST: just change the data type of ans from arraylist to set to get rid of duplicates.

@@ -5,17 +5,16 @@ import java.util.Arrays;
 // link: https://www.codingninjas.com/codestudio/problems/frog-jump_3621012
 public class FrogJump {
     public static void main(String[] args) {
-        int n = 5;
+        int n = 6;
         int[] arr = { 30, 10, 60, 10, 60, 50 };
         // for memoization
-        int[] dp = new int[n + 1];
+        int[] dp = new int[n];
         Arrays.fill(dp, -1);
-        System.out.println(frogJumpMemo(arr, n, dp));
+        System.out.println(frogJumpMemo(arr, n - 1, dp));
         System.out.println(frogJumpTabulation(arr, dp));
         System.out.println(frogJumpTabulationNoSpace(arr));
     }
 
-    // i just came up with this soln and i am fucking proud of me.
     // TC: O(n)
     // SC: O(n) -> recursion stack space + O(n) -> array size.
     static int frogJumpMemo(int[] arr, int ind, int[] dp) {

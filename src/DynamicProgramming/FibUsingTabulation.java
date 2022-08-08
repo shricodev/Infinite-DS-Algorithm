@@ -5,9 +5,9 @@ import java.util.Arrays;
 public class FibUsingTabulation {
     public static void main(String[] args) {
         int n = 10;
-        // int[] dp = new int[n + 1];
-        // Arrays.fill(dp, -1);
-        // System.out.println(fibDP(n, dp));
+        int[] dp = new int[n + 1];
+        Arrays.fill(dp, -1);
+        System.out.println(fibDP(n, dp));
 
         System.out.println(fibDPNoSpace(n));
     }

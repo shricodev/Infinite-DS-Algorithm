@@ -13,7 +13,7 @@ NOTE: to apply the tabulation technique, make sure that you have done the memoiz
 
 - Step 1 : add the base case first in the code.
 - Step 2 : run a loop till the index size and then compute the value but just in place of the recursion fxn call change that with the dp array. 
-- Step 3 : outside loop : add the required thing in the dp DS and return the required value.
+- Step 3 : add the required thing in the dp DS and outside the loop return the required value.
 
 ## TABULATION: Space optimized.
 

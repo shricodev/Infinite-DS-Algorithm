@@ -13,6 +13,7 @@ public class FibUsingMemoization {
 
     // time complexity: O(N)
     // space complexity: O(N) -> recursion stack space + O(N) for storing the data in the array.
+    // top down approach
     static int fibDP(int n, int[] dp) {
         // base case
         if (n <= 1) return n;

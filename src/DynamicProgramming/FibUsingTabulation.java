@@ -31,6 +31,8 @@ public class FibUsingTabulation {
 
     // time complexity: O(N)
     // space complexity: O(N) -> for storing the value
+
+    // buttom up approach
     private static int fibDP(int n, int[] dp) {
         dp[0] = 0;
         dp[1] = 1;

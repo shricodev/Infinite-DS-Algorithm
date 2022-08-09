@@ -27,8 +27,8 @@ public class HouseRobber2 {
         System.out.println(Math.min(first, last));
     }
 
-    // the same logic as of max sum non adjacent one but just removing the last
-    // index.
+    // the same logic as of max sum non adjacent one but just removing the first and last
+    // index in two differnet fxn calls.
     static int maxSumTabuNoSp(int[] arr) {
 
         // this is the edge case, what if the array length is just 1

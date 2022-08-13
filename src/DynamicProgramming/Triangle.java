@@ -48,6 +48,7 @@ public class Triangle {
             vert = arr[row][col] + sumRec(n, row + 1, col, arr);
 
         // adding this check condn since the unfilled array col has inital value of 0
+        // this method only works for the code with no zero as the main element of the triangle.
         if (arr[row + 1][col + 1] != 0)
             diag = arr[row][col] + sumRec(n, row + 1, col + 1, arr);
 

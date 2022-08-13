@@ -100,6 +100,8 @@ public class MinmPathSum {
         return dp[n - 1][m - 1];
     }
 
+    // time complexity: O(nxm)
+    // space complexity: O(1)
     static long minmPathNoSpace(int n, int m, int[][] arr) {
         long[] prev = new long[m];
         
@@ -113,7 +115,7 @@ public class MinmPathSum {
                     current[col] = arr[0][0];
 
                 } else {
-                    
+
                     long up = Integer.MAX_VALUE;
                     long left = Integer.MAX_VALUE;
 

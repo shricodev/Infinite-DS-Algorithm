@@ -118,7 +118,7 @@ public class Triangle {
         }
 
         // we have already filled the last index of the array in the base case so we are
-        // staring from the very last index of the array
+        // staring from the second last index of the array
         for (int row = n - 2; row >= 0; row--) {
 
             long[] current = new long[n];

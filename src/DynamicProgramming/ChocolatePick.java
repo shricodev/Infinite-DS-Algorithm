@@ -130,6 +130,7 @@ public class ChocolatePick {
 
     // this is a complete copy of the code of striver.
     // not quiet confident in the tabulation code.
+    // NOTE: for 3D dp there is no need to even go till the tabulation, memoization is enough
     static int chocolatePickTabu(int n, int m, int[][] arr, int[][][] dp) {
         
         // base case

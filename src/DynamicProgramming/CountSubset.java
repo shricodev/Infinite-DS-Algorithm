@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class CountSubset {
     public static void main(String[] args) {
-        int[] arr = { 0, 0, 1, 4, 6, 2, 3 };
+        int[] arr = {};
         // int[] arr = {1,2,2,3}
         int n = arr.length;
         int sum = 3;
@@ -37,6 +37,7 @@ public class CountSubset {
         System.out.println(countWithKSpOpt(n, sum, arr));
     }
 
+    // now the constraints have been changed in the site itself, so the code with non zero element do not work.
     // this will handle when the array has zero also in it.
     static int countWithZeroMemo(int[] arr, int ind, int target, int[][] dp) {
 

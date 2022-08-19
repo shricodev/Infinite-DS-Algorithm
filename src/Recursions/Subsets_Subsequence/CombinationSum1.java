@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class CombinationSum1 {
     public static void main(String[] args) {
-        int[] arr = { 2, 3, 6, 7, 3, 1 };
+        int[] arr = { 2, 3, 6, 7};
         subset(arr);
     }
 

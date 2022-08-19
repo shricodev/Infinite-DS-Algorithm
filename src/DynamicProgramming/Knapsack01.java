@@ -35,7 +35,7 @@ public class Knapsack01 {
         System.out.println(stealSpOpt1Row(n, wts, val, weight));
     }
 
-    // time complexity: O(n^n)
+    // time complexity: O(2^n)
     static int stealRec(int[] wts, int[] val, int ind, int weight) {
 
         if (weight == 0) {

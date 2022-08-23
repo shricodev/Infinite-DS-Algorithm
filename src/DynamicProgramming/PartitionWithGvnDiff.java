@@ -2,9 +2,9 @@ package DynamicProgramming;
 
 public class PartitionWithGvnDiff {
     public static void main(String[] args) {
-        int[] arr = { 3, 2, 2, 5, 1};
+        int[] arr = { 0, 0, 3, 6};
         int n = arr.length;
-        int diff = 1;
+        int diff = 10;
         System.out.println(helper(n, diff, arr));
     }
 
@@ -34,7 +34,7 @@ public class PartitionWithGvnDiff {
         for (int i = 0; i < arr.length; i++) {
             totalSum += arr[i];
         }
-
+        
         // given condition is : subset1sum - subset2sum = difference
         // (totalSum - subset2sum) - subset2sum = difference
         // subset2sum = (totalSum - difference) / 2
@@ -70,6 +70,5 @@ public class PartitionWithGvnDiff {
             prev = current;
         }
         return prev[diff];
-
     }
 }

@@ -2,8 +2,6 @@ package DynamicProgramming;
 
 import java.util.Arrays;
 
-import javax.xml.namespace.QName;
-
 public class CoinChange {
     public static void main(String[] args) {
         int[] arr = { 1, 2, 3 };
@@ -31,6 +29,7 @@ public class CoinChange {
 
     // time complexity: O(exponential)
     // space complexity: > O(N)
+    // link: https://www.codingninjas.com/codestudio/problems/ways-to-make-coin-change_630471
     static int countWaysRec(int[] arr, int target, int ind) {
 
         if (ind == 0) {
@@ -84,9 +83,8 @@ public class CoinChange {
             for (int tgt = 0; tgt <= target; tgt++) {
 
                 long take = 0;
-                long notTake = 0;
 
-                if (ind > 0) notTake = dp[ind - 1][tgt];
+                long notTake = dp[ind - 1][tgt];
 
                 if (arr[ind] <= tgt)
                     take = dp[ind][tgt - arr[ind]];

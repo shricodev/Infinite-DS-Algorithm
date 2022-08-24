@@ -4,20 +4,21 @@ public class pattern33 {
     public static void main(String[] args) {
         draw(6);
     }
-
-    /*
-     * This is the incolplete code for the pattern no 33.
-     * not able to find the relation between the character case and the row/col.
-     */
+    
     static void draw(int n) {
 
-        int chara = 'a';
+        int l = 1;
+        int k = 0;
 
         for (int row = 1; row <= n; row++) {
 
-            for (int col = 1; col <= row; col++) {
-                System.out.print((char)chara + " ");
-                chara++;
+            for (int col = 1; col <= row; col++, l++, k++) {
+
+                if (k % 2 == 0) {
+                    System.out.print((char) (l+96) + " ");
+                } else {
+                    System.out.print((char) (l + 64) + " ");
+                }
             }
 
             System.out.println();

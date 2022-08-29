@@ -24,6 +24,9 @@ public class EditDistance {
         }
         System.out.println(distanceTabu(s1, s2, n, m, dp));
 
+        // for space optimization
+        System.out.println(distanceSpOpt(s1, s2, n, m));
+
     }
 
     // time complexity: O(exponential) -> 3^n * 3^m
@@ -117,4 +120,43 @@ public class EditDistance {
         }
         return dp[n][m];
     }
+
+    static int distanceSpOpt(String s1, String s2, int n, int m) {
+        int[] prev = new int[m + 1];
+        int[] curr = new int[m + 1];
+
+        // since this is a 1 index based so no need to do + 1
+        // NOTE: the m should start from 1 otherwise it will overrite the prev loop 0th
+        // col
+        for (int ind2 = 0; ind2 <= m; ind2++) {
+            prev[ind2] = ind2;
+        }
+
+        for (int ind1 = 1; ind1 <= n; ind1++) {
+
+            curr[0] = ind1;
+
+            for (int ind2 = 1; ind2 <= m; ind2++) {
+
+                if (s1.charAt(ind1 - 1) == s2.charAt(ind2 - 1)) {
+                    curr[ind2] = 0 + prev[ind2 - 1];
+
+                } else {
+
+                    // since it didnt match then we will insert the element but the ind1 should
+                    // remain the same place.
+                    int insert = 1 + curr[ind2 - 1];
+
+                    int delete = 1 + prev[ind2];
+
+                    int replace = 1 + prev[ind2 - 1];
+
+                    curr[ind2] = Math.min(insert, Math.min(delete, replace));
+                }
+            }
+            prev = (int[])(curr.clone());
+        }
+        return prev[m];
+    }
+
 }

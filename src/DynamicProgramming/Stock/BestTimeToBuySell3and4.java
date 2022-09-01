@@ -2,7 +2,7 @@ package DynamicProgramming.Stock;
 
 import java.util.Arrays;
 
-public class BestTimeToBuySell3 {
+public class BestTimeToBuySell3and4 {
     public static void main(String[] args) {
         long[] price = { 9, 6, 10, 18, 15, 14, 14, 5, 16, 12 };
         int n = price.length;
@@ -33,17 +33,15 @@ public class BestTimeToBuySell3 {
         System.out.println(buySellSpOpt(price, k, n));
 
         // method two
-        System.out.println(buySellWay2(price, 0, 0));
+        System.out.println(buySellWay2(price, 0, 0, k));
     }
 
     // this is another way to solve the problem. memoization for this require only a
     // 2d dp.
-    // do this mehtod memoization, tabulation, space optimization in future.
-    // * note this mehtod just works for two transactions. for more transaction
-    // change the base case.
-    static long buySellWay2(long[] price, int ind, int transNo) {
+    // do this mehtod memoization, tabulation, space optimization in future. Its jsut the same approach
+    static long buySellWay2(long[] price, int ind, int transNo, int k) {
 
-        if (transNo == 4)
+        if (transNo == k * 2)
             return 0;
 
         if (ind == price.length)
@@ -54,13 +52,13 @@ public class BestTimeToBuySell3 {
         // index: 0 1 2 3
         // this means the transaction is a buy.
         if (transNo % 2 == 0) {
-            long buy = -price[ind] + buySellWay2(price, ind + 1, transNo + 1);
-            long notBuy = 0 + buySellWay2(price, ind + 1, transNo);
+            long buy = -price[ind] + buySellWay2(price, ind + 1, transNo + 1, k);
+            long notBuy = 0 + buySellWay2(price, ind + 1, transNo, k);
             maxProfit = Math.max(maxProfit, Math.max(buy, notBuy));
         } else {
             // this means the transaction is a sell.
-            long sell = price[ind] + buySellWay2(price, ind + 1, transNo + 1);
-            long notSell = 0 + buySellWay2(price, ind + 1, transNo);
+            long sell = price[ind] + buySellWay2(price, ind + 1, transNo + 1, k);
+            long notSell = 0 + buySellWay2(price, ind + 1, transNo, k);
             maxProfit = Math.max(maxProfit, Math.max(sell, notSell));
         }
         return maxProfit;

@@ -1,17 +1,18 @@
 package DynamicProgramming.LIS;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class LongIncSubseq {
     public static void main(String[] args) {
-        int[] arr = { 5, 4, 11, 1, 16, 8 };
+        int[] arr = { 5, 8, 3, 7, 9, 1 };
         int n = arr.length;
         int prevTakeInd = -1;
         System.out.println(lisRec(arr, 0, prevTakeInd, n));
 
         // for memoization
         // the n + 1 in index for tabulation.
-        int[][] dp = new int[n+1][n + 1];
+        int[][] dp = new int[n + 1][n + 1];
         for (int[] is : dp) {
             Arrays.fill(is, -1);
         }
@@ -21,6 +22,95 @@ public class LongIncSubseq {
         }
         System.out.println(lisTabu(arr, n, dp));
 
+        // algorithmic approach
+        System.out.println(lisAlgorithmic(arr, n));
+
+        // optimized approach
+        System.out.println(lisOptimal(n, arr));
+
+    }
+
+    // this method finds the lowerbound index of the elemnt.
+    // binary search code.
+    static int lower_bound(ArrayList<Integer> array, int key) {
+        // Initialize starting index and
+        // ending index
+        int low = 0, high = array.size();
+        int mid;
+
+        // Till high does not crosses low
+        while (low < high) {
+
+            // Find the index of the middle element
+            mid = low + (high - low) / 2;
+
+            // If key is less than or equal
+            // to array[mid], then find in
+            // left subarray
+            if (key <= array.get(mid)) {
+                high = mid;
+            }
+
+            // If key is greater than array[mid],
+            // then find in right subarray
+            else {
+
+                low = mid + 1;
+            }
+        }
+
+        if (low < array.size() && array.get(low) < key) {
+            low++;
+        }
+
+        // Returning the lower_bound index
+        return low;
+    }
+
+    static int lisOptimal(int n, int[] arr) {
+
+        if (n == 0)
+            return 0;
+
+        ArrayList<Integer> ans = new ArrayList<>();
+        ans.add(arr[0]);
+
+        for (int i = 1; i < n; i++) {
+            if (arr[i] > ans.get(ans.size() - 1)) {
+                ans.add(arr[i]);
+            } else {
+                int indOfLowerBound = lower_bound(ans, arr[i]);
+                // this method swaps the value of the index with the given value.
+                ans.set(indOfLowerBound, arr[i]);
+            }
+        }
+        return ans.size();
+    }
+
+    // this is the more intuitive code of the lis len print .
+    // time complexity: O(n^2)
+    static int lisAlgorithmic(int arr[], int n) {
+
+        int[] dp = new int[n];
+        // since for each individual elemnt the smallest lis is 1.
+        Arrays.fill(dp, 1);
+
+        for (int i = 0; i <= n - 1; i++) {
+            for (int prev_index = 0; prev_index <= i - 1; prev_index++) {
+
+                if (arr[prev_index] < arr[i]) {
+                    dp[i] = Math.max(dp[i], 1 + dp[prev_index]);
+                }
+            }
+        }
+
+        int ans = -1;
+
+        for (int i = 0; i <= n - 1; i++) {
+            ans = Math.max(ans, dp[i]);
+        }
+
+        return ans;
     }
 
     // time complexity: O(2^n)
@@ -64,8 +154,8 @@ public class LongIncSubseq {
         return dp[ind][prevTakeInd + 1] = Math.max(take, notTake);
     }
 
-    // not completely understood the concept of this code. 
-    // * TODO: take a look at the code in  the future.
+    // not completely understood the concept of this code.
+    // * TODO: take a look at the code in the future.
     static int lisTabu(int[] arr, int n, int[][] dp) {
 
         // not needed.

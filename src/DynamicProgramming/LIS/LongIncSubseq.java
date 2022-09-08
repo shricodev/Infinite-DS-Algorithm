@@ -22,6 +22,9 @@ public class LongIncSubseq {
         }
         System.out.println(lisTabu(arr, n, dp));
 
+        // space optimization
+        System.out.println(lisSpOpt(arr, n));
+
         // algorithmic approach
         System.out.println(lisAlgorithmic(arr, n));
 
@@ -66,6 +69,9 @@ public class LongIncSubseq {
         // Returning the lower_bound index
         return low;
     }
+
+    // time complexity: O(NlogN)
+    // space complexity: O(N)
 
     static int lisOptimal(int n, int[] arr) {
 
@@ -178,6 +184,33 @@ public class LongIncSubseq {
             }
         }
         return dp[0][0];
+    }
+
+    static int lisSpOpt(int[] arr, int n) {
+        int[] next = new int[n + 1];
+        int[] curr = new int[n + 1];
+
+        // not needed.
+        for (int prev = 0; prev <= n; prev++) {
+            next[prev] = 0;
+        }
+
+        for (int ind = n - 1; ind >= 0; ind--) {
+
+            for (int prev = ind - 1; prev >= -1; prev--) {
+
+                int notTake = 0 + next[prev + 1];
+                int take = 0;
+
+                if (prev == -1 || arr[ind] > arr[prev]) {
+                    take = 1 + next[ind + 1];
+                }
+
+                curr[prev + 1] = Math.max(take, notTake);
+            }
+            next = curr;
+        }
+        return next[0];
     }
 
 }

@@ -16,6 +16,12 @@ public class MatrixChainMul {
             Arrays.fill(ls, -1);
         }
         System.out.println(findMCMMemo(arr, i, j, dp));
+
+        // the tabulation approach
+        for (int[] ls : dp) {
+            Arrays.fill(ls, 0);
+        }
+        System.out.println(findMCMTabu(arr, dp, n));
     }
 
     // two approach:
@@ -45,7 +51,7 @@ public class MatrixChainMul {
     // space complexity; O(n x n) + O(n) 
     static int findMCMMemo(int[] arr, int i, int j, int[][] dp) {
 
-        if (i >= j)
+        if (i == j)
             return 0;
 
         if (dp[i][j] != -1)
@@ -64,6 +70,39 @@ public class MatrixChainMul {
         }
 
         return dp[i][j] = min;
+    }
+
+    // the tabulation code to this problem is not needed but done.
+    // time complexity: O(n^3)
+    // space complexity: O(n^2)
+    static int findMCMTabu(int[] arr, int[][] dp, int n) {
+
+        // not needed.
+        for (int i = 1; i < n; i++) {
+            dp[i][i] = 0;
+        }
+
+        for (int i = n - 1; i >= 1; i--) {
+            // since the j is always going to be the right of the i so starting the loop from the i + 1
+            for (int j = i + 1; j <= n - 1; j++) {
+
+                int min = (int) 1e9;
+
+                for (int k = i; k <= j - 1; k++) {
+        
+                    int tempAns = arr[i - 1] * arr[k] * arr[j]
+                            + dp[i][k]
+                            + dp[k + 1][j];
+        
+                    if (tempAns < min)
+                        min = tempAns;
+                }
+        
+                dp[i][j] = min;
+            }
+        }
+        return dp[1][n - 1];
+
     }
 
 }

@@ -1,31 +1,34 @@
 package DynamicProgramming.LIS;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class LargestDivSubset {
     public static void main(String[] args) {
-        List<Integer> res = new ArrayList<>();
-        int[] arr = {1,2,4,8};
-        Arrays.sort(arr);
+        int[] arr = { 1, 16, 7, 8, 4 };
         int n = arr.length;
-        ldsRec(arr, n, new ArrayList<>(), 1, 0,res);
-        System.out.println(res);
+        Arrays.sort(arr);
+        System.out.println(ldsCountRec(arr, n, 0, -1));
     }
 
-    static void ldsRec(int[] arr, int n, List<Integer> ans, int prev, int index, List<Integer> res) {
+    // method to count the no of largest divisible subset.
+    // but the sorting of the array is required for this method to work.
+    // a = b
+    // b = c
+    // c = a  this method works on this principle.
+    // this is not the required code.
+    // link: https://www.codingninjas.com/codestudio/problems/divisible-set_3754960
+    static int ldsCountRec(int[] arr, int n, int ind, int prev) {
 
-        if (ans.size() > res.size()) {
-            res =  new ArrayList<>(ans);
-        }
+        if (ind >= n)
+            return 0;
 
-        for (int ind = index; ind < n; ind++) {
-            if (arr[ind] % prev == 0) {
-                ans.add(arr[ind]);
-                ldsRec(arr, n, ans, arr[ind], ind + 1, res);
-                ans.remove(ans.size() - 1);
-            }
+        int take = 0;
+        int notTake = 0 + ldsCountRec(arr, n, ind + 1, prev);
+
+        if (prev == -1 || arr[ind] % arr[prev] == 0) {
+            take = 1 + ldsCountRec(arr, n, ind + 1, ind);
+
         }
+        return Math.max(take, notTake);
     }
 }

@@ -33,6 +33,10 @@ public class LongIncSubseq {
 
     }
 
+    // ! NOTE: 
+    // ! I am not able to visualize printing of the lis properly in the dp 42 using the hash array method.
+    // ! make sure to have a look in the future.
+
     // this method finds the lowerbound index of the elemnt.
     // binary search code.
     static int lower_bound(ArrayList<Integer> array, int key) {
@@ -72,7 +76,7 @@ public class LongIncSubseq {
 
     // time complexity: O(NlogN)
     // space complexity: O(N)
-
+    // * NOTE THE ANS ARR IS NOT THE ACTUAL LIS.
     static int lisOptimal(int n, int[] arr) {
 
         if (n == 0)
@@ -100,23 +104,20 @@ public class LongIncSubseq {
         int[] dp = new int[n];
         // since for each individual elemnt the smallest lis is 1.
         Arrays.fill(dp, 1);
+        int maxi = 1;
+        for (int ind = 0; ind < n; ind++) {
+            for (int prev = 0; prev < ind; prev++) {
 
-        for (int i = 0; i <= n - 1; i++) {
-            for (int prev_index = 0; prev_index <= i - 1; prev_index++) {
-
-                if (arr[prev_index] < arr[i]) {
-                    dp[i] = Math.max(dp[i], 1 + dp[prev_index]);
+                if (arr[prev] < arr[ind]) {
+                    // if the previous index of the array is smaller thatn the i then the dp[i] ans
+                    // should be the 1 + dp[prev]
+                    dp[ind] = Math.max(dp[ind], 1 + dp[prev]);
                 }
             }
+            maxi = Math.max(maxi, dp[ind]);
         }
 
-        int ans = -1;
-
-        for (int i = 0; i <= n - 1; i++) {
-            ans = Math.max(ans, dp[i]);
-        }
-
-        return ans;
+        return maxi;
     }
 
     // time complexity: O(2^n)

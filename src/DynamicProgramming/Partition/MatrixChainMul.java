@@ -37,8 +37,9 @@ public class MatrixChainMul {
         int min = (int) 1e9;
 
         for (int k = i; k <= j - 1; k++) {
-
-            int tempAns = arr[i - 1] * arr[k] * arr[j] + findMCM(arr, i, k) + findMCM(arr, k + 1, j);
+            //            this is the cost to multiply      this is the cost     this is the cost
+            //           the left and the right portion     for left portion     for right portion       
+            int tempAns = (arr[i - 1] * arr[k] * arr[j]) + findMCM(arr, i, k) + findMCM(arr, k + 1, j);
 
             if (tempAns < min)
                 min = tempAns;

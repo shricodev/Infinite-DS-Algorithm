@@ -2,8 +2,6 @@ package DynamicProgramming.Partition;
 
 import java.util.Arrays;
 
-import javax.swing.plaf.FontUIResource;
-
 public class PalindromePartitionLenMCM {
     public static void main(String[] args) {
         // not passing all test case in leetcode but passing in codestudio.
@@ -21,6 +19,8 @@ public class PalindromePartitionLenMCM {
         // -1 since we are also patitioning at the n - 1 index just for a letter. so
         // subtracting 1
         System.out.println(palindromePartFront(str, 0, n) - 1);
+
+        System.out.println(palindromePartFrontTabu(str, n));
 
         // for memoization optimization
         System.out.println(palindromePartMemoOpt(str, 0, n - 1, dp));

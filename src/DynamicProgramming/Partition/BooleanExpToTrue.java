@@ -12,13 +12,13 @@ public class BooleanExpToTrue {
                 Arrays.fill(ls, -1);
             }
         }
-        System.out.println(findWays(s, 0, n - 1, true, dp));
+        System.out.println(findWaysMemo(s, 0, n - 1, true, dp));
     }
 
     // here i and j represent start and end index
     // we are checking for the false consition also because the OR and Xor operator
     // also relies on the false to return true.
-    static int findWays(String s, int i, int j, boolean isTrue, int[][][] dp) {
+    static int findWaysMemo(String s, int i, int j, boolean isTrue, int[][][] dp) {
 
         if (i > j)
             return 0;
@@ -38,10 +38,10 @@ public class BooleanExpToTrue {
         int ways = 0;
 
         for (int k = i + 1; k <= j - 1; k = k + 2) {
-            int lT = findWays(s, i, k - 1, true, dp);
-            int lF = findWays(s, i, k - 1, false, dp);
-            int rT = findWays(s, k + 1, j, true, dp);
-            int rF = findWays(s, k + 1, j, false, dp);
+            int lT = findWaysMemo(s, i, k - 1, true, dp);
+            int lF = findWaysMemo(s, i, k - 1, false, dp);
+            int rT = findWaysMemo(s, k + 1, j, true, dp);
+            int rF = findWaysMemo(s, k + 1, j, false, dp);
 
             if (s.charAt(k) == '&') {
                 if (isTrue == true) {

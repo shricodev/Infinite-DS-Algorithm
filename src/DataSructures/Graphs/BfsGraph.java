@@ -28,6 +28,8 @@ public class BfsGraph {
         System.out.println(bfsOfGraph(v, adj));
     }
 
+    // time complexity; O(n) + O(2E)
+    // space complexity: O(3n)
     public static ArrayList<Integer> bfsOfGraph(int v, ArrayList<ArrayList<Integer>> adj) {
 
         ArrayList<Integer> bfs = new ArrayList<Integer>();

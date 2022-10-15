@@ -29,7 +29,8 @@ public class DfsGraph {
 
         boolean[] vis = new boolean[v];
         ArrayList<Integer> dfs = new ArrayList<>();
-        dfsFind(0, vis, adj, dfs);
+        int start = 0;
+        dfsFind(start, vis, adj, dfs);
         return dfs;
     }
 

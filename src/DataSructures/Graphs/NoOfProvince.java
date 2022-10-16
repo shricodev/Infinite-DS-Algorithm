@@ -6,6 +6,8 @@ public class NoOfProvince {
 
     // problem link: https://practice.geeksforgeeks.org/problems/number-of-provinces/1
     // in this question it is given the adjacency matrix than the adjacency list.
+    // time complexity; O(n) + O(v + 2E)
+    // space complexity: O(n) + O(n)
     static int numProvinces(ArrayList<ArrayList<Integer>> adj, int V) {
 
         ArrayList<ArrayList<Integer>> adjLs = new ArrayList<ArrayList<Integer>>();

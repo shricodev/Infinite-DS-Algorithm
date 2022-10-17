@@ -33,6 +33,8 @@ public class DetectCycleUndirectedBFS {
         return false;
     }
 
+    // time complexity: O(n + 2E
+    // space complexity: O(n) + O(n)
     private boolean bfs(int v, ArrayList<ArrayList<Integer>> adj, int src, boolean[] vis) {
 
         Queue<Pair> q = new LinkedList<>();

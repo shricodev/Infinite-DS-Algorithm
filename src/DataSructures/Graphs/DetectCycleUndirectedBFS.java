@@ -25,6 +25,7 @@ public class DetectCycleUndirectedBFS {
         // NOTE: we say a graph has a cycle if any of the components has a cycle.
         for (int i = 0; i < v; i++) {
             if (vis[i] == false) {
+                // if any of the components return false, then it does not mean that all other component return false.
                 if (bfs(v, adj, i, vis) == true)
                     return true;
             }

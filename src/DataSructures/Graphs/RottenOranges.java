@@ -61,9 +61,12 @@ public class RottenOranges {
 
         while (!q.isEmpty()) {
 
+            // this keeps track of all the oranges that are ready to rot the neighbour oranges.
             int sizeQ = q.size();
             int temp = 0;
 
+            // when the size becomes zero it means that all the oranges they have rotten nearby and now its time
+            // for just rotten oranges to rot the nearby oranges.
             while (sizeQ != 0) {
                 int row = q.peek().row;
                 int col = q.peek().col;
@@ -81,6 +84,7 @@ public class RottenOranges {
                         temp++;
                     }
                 }
+                // one rotten orange have finished rotting the nearby oranges.
                 sizeQ--;
             }
 

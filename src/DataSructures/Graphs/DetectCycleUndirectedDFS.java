@@ -14,6 +14,7 @@ public class DetectCycleUndirectedDFS {
         // running a loop to handle the connected components cases
         for (int i = 0; i < v; i++) {
             if (!vis[i]) {
+                // for all the first node we set the parent to -1. cuz we have connected components
                 if (dfs(v, adj, i, vis, -1))
                     return true;
             }
@@ -21,7 +22,7 @@ public class DetectCycleUndirectedDFS {
         return false;
     }
 
-    // time complexity: O()
+    // time complexity: O(n + 2E)
     // space complexity: O(n) -> stack + O(n) -> visited array.
     private static boolean dfs(int v, ArrayList<ArrayList<Integer>> adj, int node, boolean[] vis, int parent) {
 

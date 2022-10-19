@@ -4,6 +4,8 @@ public class NoOfEnclaves {
 
     int connected = 0;
 
+    // time complexity; O(n x m x 4)
+    // space complexity: O(n x m)
     public int numberOfEnclaves(int[][] grid) {
 
         int n = grid.length;

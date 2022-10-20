@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class DetectCycleDirectedDFS {
-    public static void main(String[] args) {
-        
-    }
 
     // time complexity; O(v + e)
     // space complexity; O(2n)

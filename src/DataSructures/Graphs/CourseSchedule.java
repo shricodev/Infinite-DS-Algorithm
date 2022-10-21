@@ -4,10 +4,18 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class DetectCycleDirectedBFSKahn {
-    
-    public static boolean topoSort(int v, ArrayList<ArrayList<Integer>> adj) {
+public class CourseSchedule {
+    static int[] findOrder(int v, int m, ArrayList<ArrayList<Integer>> prerequisites) {
 
+        ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
+
+        for (int i = 0; i < v; i++) {
+            adj.add(new ArrayList<>());
+        }
+
+        for (int i = 0; i < m; i++) {
+            adj.get(prerequisites.get(i).get(1)).add(prerequisites.get(i).get(0));
+        }
         int[] indegree = new int[v];
 
         // for finding the indegree of the nodes.
@@ -25,11 +33,13 @@ public class DetectCycleDirectedBFSKahn {
                 q.add(i);
             }
         }
-        int count = 0;
+        int[] topo = new int[v];
+        int i = 0;
         while (!q.isEmpty()) {
             int node = q.peek();
             q.remove();
-            count++;
+            topo[i] = node;
+            i++;
             for (int it : adj.get(node)) {
                 indegree[it]--;
                 if (indegree[it] == 0)
@@ -38,10 +48,10 @@ public class DetectCycleDirectedBFSKahn {
         }
         // if the topological sort has the same no of the element then it means that the 
         // sort was successful and it is the acyclic graph.
-        // here the count acts jsut as the length of the topo.
-        if (count == v) {
-            return false;
+        if (i == v) {
+            return topo;
         }
-        return true;
+        int[] temp = {};
+        return temp;
     }
 }

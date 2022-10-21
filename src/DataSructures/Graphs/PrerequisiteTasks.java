@@ -9,8 +9,21 @@ import java.util.Queue;
 // to perform task u task v should be done first. so using the topological sort using the kahn's algorithm can also be done using the DFS method.
 // if the cycle is found in the graph then the ans would be false, that is we would not be able to complete all the tasks.
 public class PrerequisiteTasks {
+
+    public static void main(String[] args) {
+        int N = 5;
+        // this is not the adjacency list.
+        int[][] prerequisite = {
+            {1,0},
+            {2,1},
+            {3,2},
+            {1,3},
+            {2,4}
+        };
+        System.out.println(isPossible(N, prerequisite));
+    }
     
-    public boolean isPossible(int N, int[][] prerequisites)
+    public static boolean isPossible(int N, int[][] prerequisites)
     {
         ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
 
@@ -20,7 +33,8 @@ public class PrerequisiteTasks {
 
         int m = prerequisites.length;
         for (int i = 0; i < m; i++) {
-            adj.get(prerequisites[i][0]).add(prerequisites[i][1]);
+            // eg: [0, 1] -> to do the task 0 we need to do the task 1, so the connection would be from 1 -> 0 
+            adj.get(prerequisites[i][1]).add(prerequisites[i][0]);
         }
 
         int[] indegree = new int[N];

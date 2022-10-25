@@ -8,6 +8,7 @@ public class KahnAlgorithmBFS {
 
     // time complexity; O(v + e)
     // space complexity; O(3v)
+    // ! NOTE: we can use any stack, set or any other suitable ds as well. Queue is not the only option.
     public static int[] topoSort(int v, ArrayList<ArrayList<Integer>> adj) {
 
         int[] indegree = new int[v];

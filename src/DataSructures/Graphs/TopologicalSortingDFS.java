@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Stack;
 
 //* TOPOLOGICAL sorting works on Direct Acyclic Graph only. it is the opposite of DFS
-public class TopologicalSorting {
+public class TopologicalSortingDFS {
     
     static int[] topoSort(int V, ArrayList<ArrayList<Integer>> adj) 
     {
@@ -36,6 +36,7 @@ public class TopologicalSorting {
                 dfs(adj, adjNode, st, vis);
             }
         }
+        // when the topo sort is done for the node, we add it to the stack
         st.add(node);
     }
 }

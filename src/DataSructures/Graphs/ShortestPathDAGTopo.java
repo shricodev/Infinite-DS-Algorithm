@@ -16,6 +16,8 @@ class Pair {
 
 public class ShortestPathDAGTopo {
     
+    // time complexity: O(n + e), whichi is better than the dijkstra algorithm
+    // we use hte topo sort, since we need to move to the edges acc to the reachability
     public int[] shortestPath(int n, int m, int[][] edges) {
 
         ArrayList<ArrayList<Pair>> adj = new ArrayList<>();
@@ -50,12 +52,15 @@ public class ShortestPathDAGTopo {
         while (!st.isEmpty()) {
             int node = st.peek();
             st.pop();
-            for (int i = 0; i < adj.get(node).size(); i++) {
-                int v = adj.get(node).get(i).v;
-                int wt = adj.get(node).get(i).wt;
-
-                if (dis[v] > dis[node] + wt) {
-                    dis[v] = dis[node] + wt;
+            // if the distance of the node is ie9 then no need to check for the adj node from that node.
+            if (dis[node] != (int) 1e9) {
+                for (int i = 0; i < adj.get(node).size(); i++) {
+                    int v = adj.get(node).get(i).v;
+                    int wt = adj.get(node).get(i).wt;
+    
+                    if (dis[v] > dis[node] + wt) {
+                        dis[v] = dis[node] + wt;
+                    }
                 }
             }
         }

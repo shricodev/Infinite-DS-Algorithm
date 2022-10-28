@@ -16,6 +16,8 @@ class Pair {
     }
 }
 
+// ? this is a great qn. this concept can be helpful in the other qn as well which requires something like printing the path.
+// * this qn uses a very good concept of memoizing where we came from using the parent array.
 public class ShortestPathPrintWeightedUndirected {
     
     public static List<Integer> shortestPath(int n, int m, int edges[][]) {

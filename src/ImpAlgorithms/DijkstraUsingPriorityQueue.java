@@ -1,4 +1,4 @@
-package DataSructures.Graphs;
+package ImpAlgorithms;
 
 import java.util.ArrayList;
 import java.util.Arrays;

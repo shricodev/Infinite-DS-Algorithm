@@ -8,10 +8,14 @@ import java.util.Set;
 class Pair {
     String word;
     int steps;
+    public int distance;
 
     public Pair(String word, int steps) {
         this.word = word;
         this.steps = steps;
+    }
+
+    public Pair(int i, int s) {
     }
 }
 

@@ -24,7 +24,7 @@ public class ShortestPathPrintWeightedUndirected {
         // code here
         ArrayList<ArrayList<Pair>> adj = new ArrayList<>();
         
-        // since this is the one based indexing, so adding one extra arraylis to the list.
+        // since this is the one based indexing, so adding one extra arraylist to the list.
         for (int i = 0; i <= n; i++) {
             adj.add(new ArrayList<>());
         }

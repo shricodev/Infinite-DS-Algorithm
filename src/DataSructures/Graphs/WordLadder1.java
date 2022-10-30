@@ -14,9 +14,6 @@ class Pair {
         this.word = word;
         this.steps = steps;
     }
-
-    public Pair(int i, int s) {
-    }
 }
 
 public class WordLadder1 {

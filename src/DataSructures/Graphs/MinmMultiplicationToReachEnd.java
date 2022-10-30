@@ -19,6 +19,7 @@ public class MinmMultiplicationToReachEnd {
         // Your code here
         Queue<Pair> q = new LinkedList<>();
         int n = 100000;
+        // since we can have a total node of 9999 since mod of 100000, given in the constraints.
         int[] dist = new int[n];
         Arrays.fill(dist, (int) 1e9);
         int mod = (int) 1e5;

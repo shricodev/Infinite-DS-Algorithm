@@ -1,4 +1,4 @@
-package ImpAlgorithms;
+package ImpAlgorithms.Graphs;
 
 import java.util.ArrayList;
 import java.util.Queue;

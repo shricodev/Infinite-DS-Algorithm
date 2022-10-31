@@ -1,4 +1,4 @@
-package DataSructures.Graphs;
+package ImpAlgorithms.Graphs;
 
 public class FloydWarshall {
 

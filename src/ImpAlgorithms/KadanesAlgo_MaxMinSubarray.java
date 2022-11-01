@@ -19,7 +19,7 @@ public class KadanesAlgo_MaxMinSubarray {
 
             sum = sum + arr[i];
 
-            maxi = Math.min(maxi, sum);
+            maxi = Math.max(maxi, sum);
 
             if (sum < 0) sum = 0;
         }

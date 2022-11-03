@@ -1,1 +1,2 @@
 - Word Ladder - 2 : G-30/31 (Striver) Didn't get the intuition. SUPERRR HARD QN
+- Maxm removal of stones on same row or col - Attempt the qn using the most optimized approach

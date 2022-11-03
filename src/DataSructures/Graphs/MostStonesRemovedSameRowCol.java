@@ -8,7 +8,7 @@ class DisjointSet {
     List<Integer> parent = new ArrayList<>();
     // for finding using union by size.
     List<Integer> size = new ArrayList<>();
-
+  
     // constructor 
     public DisjointSet(int n) {
         // this handles the case for both the one and zero index

@@ -8,9 +8,9 @@ public class MaximumDepth {
     // space complexity: O(n)
     public int maxDepthRec(TreeNode node) {
         if (node == null) return 0;
-        int maxLeft = 1 + maxDepthRec(node.left);
-        int maxRight = 1 + maxDepthRec(node.right);
-        return Math.max(maxLeft, maxRight);
+        int leftHt = 1 + maxDepthRec(node.left);
+        int rightHt = 1 + maxDepthRec(node.right);
+        return Math.max(leftHt, rightHt);
     }
 
     // since this is level wise so we can just do + 1 for each level.

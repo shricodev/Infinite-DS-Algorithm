@@ -21,24 +21,25 @@ class TreeNode {
 /*
  * the brute force solution would be this: but it has time complexity of O(n^2)
  * int height(TreeNode* root){
- * if(root==NULL) return 0;
- * int x = 1 + height(root.left);
- * int y = 1 + height(root.right);
+ *      if(root==NULL) return 0;
+ *  int x = 1 + height(root.left);
+ *  int y = 1 + height(root.right);
  * 
- * return Math.max(x,y);
+ *  return Math.max(x,y);
  * }
+ * 
  * int maxi=0;
  * int diameterOfBT(TreeNode* root) {
- * if(root==NULL) return 0;
+ *  if(root==NULL) return 0;
  * 
- * int leftHt = height(root.left);
- * int rightHt = height(root.right);
+ *  int leftHt = height(root.left);
+ *  int rightHt = height(root.right);
  * 
- * maxi = Math.max(maxi, leftHt+rightHt);
- * int left = diameterOfBT(root.left);
- * int right = diameterOfBT(root.right);
+ *  maxi = Math.max(maxi, leftHt+rightHt);
+ *  int left = diameterOfBT(root.left);
+ *  int right = diameterOfBT(root.right);
  * 
- * return maxi;
+ *  return maxi;
  * }
  */
 

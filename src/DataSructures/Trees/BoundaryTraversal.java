@@ -30,6 +30,8 @@ class Solution
         }
     }
 
+    // pre order traversal.
+    // any other traversal works absolutely fine.
     private void findLeafNode(Node node, ArrayList<Integer> ans) {
         if (isLeaf(node)) {
             ans.add(node.data);

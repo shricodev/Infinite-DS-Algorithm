@@ -15,6 +15,7 @@ class Pair {
 public class MaximumWidthOfBT {
     
     // this is the leetcode version of the question and not the GFG, the question on the GFG varies from the leetcode one.
+    // since we are assigning the indexes so it takes care of even the null nodes.
     public int widthOfBinaryTree(TreeNode root) {
         if (root == null) return 0;
         Queue<Pair> q = new LinkedList<>();

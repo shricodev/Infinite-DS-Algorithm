@@ -32,16 +32,16 @@ public class PrintAllNodeAtDisK {
             currLvl++;
             for (int i = 0; i < size; i++) {
                 TreeNode node = q.poll();
-                if (node.left != null && visited.get(node.left) == false) {
+                if (node.left != null && visited.get(node.left) == null) {
                     q.add(node.left);
                     visited.put(node.left, true);
                 }
-                if (node.right != null && visited.get(node.right) == false) {
+                if (node.right != null && visited.get(node.right) == null) {
                     q.add(node.right);
                     visited.put(node.right, true);
                 }
                 // if the parent of the node is not visited then we can go there as well since we can move in three directions with the help of the parent hashmap.
-                if (parents.get(node) != null && visited.get(parents.get(node)) == false) {
+                if (parents.get(node) != null && visited.get(parents.get(node)) == null) {
                     q.add(parents.get(node));
                     visited.put(parents.get(node), true);
                 }

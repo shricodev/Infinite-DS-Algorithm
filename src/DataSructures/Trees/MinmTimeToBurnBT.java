@@ -1,4 +1,4 @@
-package DataSructures.Graphs;
+package DataSructures.Trees;
 
 import java.util.HashMap;
 import java.util.LinkedList;

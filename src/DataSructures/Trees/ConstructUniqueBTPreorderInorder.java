@@ -27,7 +27,7 @@ public class ConstructUniqueBTPreorderInorder {
     public static TreeNode buildTree(int inorder[], int preorder[], int n) {
         // code here
         HashMap<Integer, Integer> mapInorder = new HashMap<>();
-        // creating a hashmap as node, ind so we do not need to traverse the inorder array all the time.
+        // creating a hashmap as node, ind so we do not need to traverse the inorder array all
         for (int i = 0; i < n; i++) {
             mapInorder.put(inorder[i], i);
         }
@@ -42,16 +42,15 @@ public class ConstructUniqueBTPreorderInorder {
 
         // creating the root from the preStart: Root, Left, Right
         TreeNode root = new TreeNode(preorder[preStart]);
-
         int inRoot = mapInorder.get(root.val);
+
         // no in the left of inRoot.
         int numsLeft = inRoot - inStart;
 
         root.left = findNode(preorder, preStart + 1, preStart + numsLeft, inorder, inStart, inRoot - 1, mapInorder);
         root.right = findNode(preorder, preStart + numsLeft + 1, preEnd, inorder, inRoot + 1, inEnd, mapInorder);
-        return root;
-
-
+        
+        return root; 
     }
 
 }

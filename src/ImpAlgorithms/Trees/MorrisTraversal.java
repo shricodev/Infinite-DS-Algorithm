@@ -45,6 +45,7 @@ public class MorrisTraversal {
                 else {
                     // removing the connection  
                     predecessor.right = null;
+                    // for preorder traversal just shift this add line to the if statement.
                     inorder.add(predecessor.val);
                     curr = curr.right;
                 }

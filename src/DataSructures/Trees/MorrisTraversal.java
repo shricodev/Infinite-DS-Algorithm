@@ -3,6 +3,7 @@ package DataSructures.Trees;
 import java.util.ArrayList;
 
 public class MorrisTraversal {
+    // for reference in future: https://youtu.be/2BdY9fixMrM?t=208
     public ArrayList<Integer> getInorder(TreeNode root) {
         ArrayList<Integer> inorder = new ArrayList<>();
         // created a copy curr node of root, we dont want to destroy the root node.
@@ -27,6 +28,7 @@ public class MorrisTraversal {
                 else {
                     // removing the connection  
                     predecessor.right = null;
+                    // for preorder traversal just shift this add line to the if statement.
                     inorder.add(predecessor.val);
                     curr = curr.right;
                 }

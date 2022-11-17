@@ -1,4 +1,4 @@
-package ImpAlgorithms;
+package ImpAlgorithms.Arrays;
 
 public class KadanesAlgo_MaxMinSubarray {
 

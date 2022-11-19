@@ -1,6 +1,7 @@
 package DataSructures.BST;
 
 public class LCAInBST {
+    // time complexity: O(height) -> not recommended to use the BT way of solving, since it gives tc of O(n)
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         TreeNode lca = findNode(root, p, q);
         return lca;

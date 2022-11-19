@@ -16,7 +16,8 @@ public class LowestCommonAncestor {
 
     Node lcaOptimal(Node root, Node n1, Node n2) {
 
-        if (root == null || root == n1 || root == n2) return root;
+        if (root == null) return null;
+        if(root == n1 || root == n2) return root;
         
         Node left = lcaOptimal(root.left, n1, n2);
         Node right = lcaOptimal(root.right, n1, n2);

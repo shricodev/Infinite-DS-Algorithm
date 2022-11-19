@@ -10,6 +10,7 @@ public class CheckValidBST {
 
         if (root == null) return true;
 
+        // for left checks,          for right checks
         if (root.val >= highLimit || root.val <= lowLimit) return false;
         
         return isBST(root.left, lowLimit, root.val) && isBST(root.right, root.val, highLimit);

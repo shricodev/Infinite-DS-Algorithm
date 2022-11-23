@@ -1,23 +1,26 @@
 package DataSructures.BST;
 
 public class RecoverBST {
+
     private TreeNode prev;
     private TreeNode first;
     // middle is required if the two violated nodes are adjacent then it will not work.
     private TreeNode middle;
     private TreeNode last;
 
-    // the intuition is we will find the inorder and when the prev value is > than the current node 
-    // val then we swap them.
     public void recoverTree(TreeNode root) {
         first = middle = last = null;
         prev = new TreeNode(Integer.MIN_VALUE);
         recover(root);
         if (first != null && last != null) {
-            swap(first.val, last.val);
+            int temp = first.val;
+            first.val = last.val;
+            last.val = temp;
         }
         else if (first != null && middle != null) {
-            swap(first.val, middle.val);
+            int temp = first.val;
+            first.val = middle.val;
+            middle.val = temp;
         }
     }
 
@@ -27,7 +30,7 @@ public class RecoverBST {
         recover(node.left);
         
         // means there is a violation.
-        if (node.val <= prev.val) {
+        if (node.val < prev.val) {
 
             // if its the first violation
             if (first == null) {
@@ -42,11 +45,4 @@ public class RecoverBST {
         prev = node;
         recover(node.right);
     }
-
-    public void swap(int first, int second) {
-
-        int temp = first;
-        first = second;
-        second = temp;
-    } 
 }

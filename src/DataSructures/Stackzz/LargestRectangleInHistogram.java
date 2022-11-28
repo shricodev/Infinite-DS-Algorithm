@@ -1,4 +1,4 @@
-package DataSructures.StacksAndQueue;
+package DataSructures.Stackzz;
 
 
 public class LargestRectangleInHistogram {

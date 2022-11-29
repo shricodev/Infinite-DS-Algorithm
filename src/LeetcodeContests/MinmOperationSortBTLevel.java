@@ -28,6 +28,7 @@ class Pair {
 
 public class MinmOperationSortBTLevel {
 
+    // the idea is the min swap to reach the sorted array of the level is == min swap to reach the level node from the sorted array.
     public int minimumOperations(TreeNode root) {
         int ans = 0;
         // level order traversal

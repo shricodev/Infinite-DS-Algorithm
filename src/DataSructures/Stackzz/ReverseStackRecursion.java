@@ -2,8 +2,11 @@ package DataSructures.Stackzz;
 
 import java.util.Stack;
 
-public class ReverseStack {
+public class ReverseStackRecursion {
     
+
+    // time complexity; o(n^2)
+    // another approach would be iterating the stack1 and pushing it to stack2 recursively and return the stack2 at the last. O(n) time
     private static void reverseStack(Stack<Integer> st) {
 
         if (st.isEmpty()) return;

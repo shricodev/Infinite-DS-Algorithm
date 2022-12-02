@@ -2,7 +2,7 @@ package LeetcodeDaily;
 
 public class DetermineStringHalvesAlike {
     
-
+    String VOWELS = "aeiouAEIOU";
     public boolean halvesAreAlike(String s) {
         
         int countFirstHalf = 0;
@@ -16,11 +16,9 @@ public class DetermineStringHalvesAlike {
             if (isVowel(s.charAt(i))) countSecondHalf++;
         }
         return countFirstHalf == countSecondHalf;
-
-        
     }
 
     boolean  isVowel(char ch) {
-        return ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' || ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U';
+        return VOWELS.indexOf(ch) != -1;
     }
 }

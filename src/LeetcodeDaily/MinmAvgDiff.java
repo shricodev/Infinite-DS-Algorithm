@@ -1,0 +1,36 @@
+package LeetcodeDaily;
+
+public class MinmAvgDiff {
+
+    public int minimumAverageDifference(int[] nums) {
+        
+        if (nums.length == 1 ) return 0; 
+        int n = nums.length;
+        // taking long bcuz of integer overflow 
+        long[] prefixSum = new long[n];
+        prefixSum[0] = nums[0];
+        findPrefixSum(prefixSum, nums, n);
+        long minDiff = Long.MAX_VALUE;
+        int minInd = Integer.MAX_VALUE;
+        for (int i = 0; i < n; i++) {
+            int leftElems = i + 1;
+            int rightElems = n - i - 1;
+            // for the last element the right elements are 0 which throws error. so check for this condn.
+            rightElems = i != n - 1 ? rightElems : 1;
+            long leftSum = prefixSum[i];
+            long rightSum = prefixSum[n - 1] - prefixSum[i];
+            long temp = Math.abs((leftSum / leftElems) - (rightSum / rightElems));
+            if (temp < minDiff) {
+                minDiff = temp;
+                minInd = i;
+            }
+        }
+        return minInd;
+    }
+
+    public void findPrefixSum(long[] prefixSum, int[] nums, int n) {
+        for(int i = 1; i < n; i++) {
+            prefixSum[i] = nums[i] + prefixSum[i - 1];
+        }
+    }
+}

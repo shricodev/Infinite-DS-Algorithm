@@ -1,56 +1,59 @@
 package DataSructures.Stackzz;
 
+import java.util.Stack;
 
 public class LargestRectangleInHistogram {
 
-    public static void main(String[] args) {
-        int[] heights = { 2, 3 };
-        // System.out.println(findArea(heights));
+    public int largestRectangleArea(int[] heights) {
+        int n = heights.length;
+        int maxArea = Integer.MIN_VALUE;
+        int[] nextSmallerInd = findNextSmaller(heights, n);
+        int[] prevSmallerInd = findPrevSmaller(heights, n);
+
+        for (int i = 0; i < n; i++) {
+            if (nextSmallerInd[i] == -1) {
+                nextSmallerInd[i] = n;
+            }
+            int length = heights[i];
+            int breadth = nextSmallerInd[i] - prevSmallerInd[i] - 1;
+            int area = length * breadth;
+            maxArea = Math.max(maxArea, area);
+        }
+        return maxArea;
     }
 
-    // BRUTE APPROACH
-    // dont know what is wrong with the code.
-    // it does not pass all the test cases of any online judge.
-    // time complexity; O(n^2)
-    // static int findArea(int[] heights) {
-    //     int n = heights.length;
-    //     int maxi = 0;
-
-    //     for (int i = 0; i < n; i++) {
-    //         if (i < n - 1 && heights[i] != heights[i + 1]) {
-    //             break;
-    //         } else {
-    //             if (i == n - 1) {
-    //                 return heights[i] * n;
-    //             }
-    //         }
-    //     }
-
-    //     for (int i = 0; i < n; i++) {
-    //         int leftSmallInd = i;
-    //         int rightSmallInd = i;
-
-    //         // for finding the left just smallest element.
-    //         for (int j = i; j >= 0; j--) {
-    //             if (heights[j] < heights[i]) {
-    //                 // this is the boundary of the left smaller index that is the + 1.
-    //                 leftSmallInd = j + 1;
-    //                 break;
-    //             }
-    //         }
-
-    //         // for finding the right just smallest element.
-    //         for (int j = i; j < n; j++) {
-    //             if (heights[j] < heights[i]) {
-    //                 // this is the boundary of the right smaller index that is the - 1.
-    //                 rightSmallInd = j - 1;
-    //                 break;
-    //             }
-    //         }
-
-    //         maxi = Math.max(maxi, (rightSmallInd - leftSmallInd + 1) * heights[i]);
-    //     }
-
-    //     return maxi;
-    // }
+    public static int[] findNextSmaller(int[] arr, int n) {
+        Stack<Integer> st = new Stack<>();
+        int[] ans = new int[n];
+        // for handling when there is no greater element.
+        st.add(-1);
+        for (int i = n - 1; i >= 0; i--) {
+            
+            int curr = arr[i];
+            // for finding just smaller element just remove the st.peek() != -1 extra condn.
+            while (st.peek() != -1 && arr[st.peek()] >= curr) {
+                st.pop();
+            }
+            ans[i] = st.peek();
+            st.add(i);
+        }
+        return ans;
+    }
+    
+    public static int[] findPrevSmaller(int[] arr, int n) {
+        Stack<Integer> st = new Stack<>();
+        // for handling when there is no greater element.
+        int[] ans = new int[n];
+        st.add(-1);
+        for (int i = 0; i < n; i++) {
+            
+            int curr = arr[i];
+            while (st.peek() != -1 && arr[st.peek()] >= curr) {
+                st.pop();
+            }
+            ans[i] = st.peek();
+            st.add(i);
+        }
+        return ans;
+    }
 }

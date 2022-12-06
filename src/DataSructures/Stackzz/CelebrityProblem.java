@@ -43,7 +43,6 @@ public class CelebrityProblem {
         if (countOne != n - 1) return -1;
 
         return potential;
-
     }
 
     private boolean knows(int[][] arr, int a, int b) {

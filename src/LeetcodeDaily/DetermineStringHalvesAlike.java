@@ -1,4 +1,3 @@
-package LeetcodeDaily;
 
 public class DetermineStringHalvesAlike {
     

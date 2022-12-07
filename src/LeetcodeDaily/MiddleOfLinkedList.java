@@ -1,4 +1,4 @@
-package LeetcodeDaily;
+
 
 class ListNode {
      int val;

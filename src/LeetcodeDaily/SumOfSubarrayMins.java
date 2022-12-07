@@ -1,4 +1,4 @@
-package LeetcodeDaily;
+
 
 // could not code the O(n) tc.
 // O(n^2) code.

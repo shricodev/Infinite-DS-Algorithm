@@ -1,4 +1,4 @@
-package LeetcodeDaily;
+
 
 public class MinmAvgDiff {
 

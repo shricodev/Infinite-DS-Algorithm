@@ -32,6 +32,7 @@ public class FirstNonRepeatingChars {
                     break;
                 }
             }
+            // so if the queue is empty then there was no non repeating char so add '#' 
             if (q.isEmpty()) {
                 sb.append('#');
             }

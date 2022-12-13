@@ -1,3 +1,5 @@
+package LeetcodeDaily;
+
 
 
 // could not code the O(n) tc.

@@ -1,4 +1,4 @@
-package DataSructures.Queuess;
+package SlidingWindow.Fixed;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

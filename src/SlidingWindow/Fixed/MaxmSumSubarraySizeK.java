@@ -1,4 +1,4 @@
-package SlidingWindow;
+package SlidingWindow.Fixed;
 
 import java.util.ArrayList;
 

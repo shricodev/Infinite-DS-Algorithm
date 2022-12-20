@@ -4,12 +4,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 class Solution {
-    public int longestkSubstr(String s, int k) {
-        // code here
+    public int lengthOfLongestSubstring(String s) {
         int n = s.length();
-        int maxi = -1;
         Map<Character, Integer> mp = new HashMap<Character, Integer>();
         int i = 0, j = 0;
+        int maxi = 0;
 
         while (j < n) {
 
@@ -22,15 +21,12 @@ class Solution {
                 mp.put(ch, mp.get(ch) + 1);
             }
 
-            if (mp.size() < k) {
-                j++;
-            } else if (mp.size() == k) {
+            if (mp.size() == j - i + 1) {
                 maxi = Math.max(maxi, j - i + 1);
                 j++;
-            } else {
-                // if the size ofthe map is greater than the unique chars then remove elements count 
-                // and if the count is zero then remove the element from the map since it is not in the window size anymore.
-                while (mp.size() > k) {
+
+            } else if (mp.size() < j - i + 1) {
+                while (mp.size() < j - i + 1) {
                     char removalCh = s.charAt(i);
                     mp.put(removalCh, mp.get(removalCh) - 1);
                     if (mp.get(removalCh) == 0) {
@@ -42,6 +38,5 @@ class Solution {
             }
         }
         return maxi;
-
     }
 }

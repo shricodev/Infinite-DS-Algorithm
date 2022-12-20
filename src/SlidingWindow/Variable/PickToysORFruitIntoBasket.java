@@ -14,7 +14,7 @@ class Solution {
 
         while (j < n) {
             int fruitType = fruits[j];
-
+ 
             // increase the fruits count.
             if (!mp.containsKey(fruitType)) {
                 mp.put(fruitType, 1);
@@ -31,7 +31,7 @@ class Solution {
                 ans = Math.max(ans, fruitsCount);
                 j++;
             } else {
-                // if the size ofthe map is greater than the k then remove elements count 
+                // if the size of the map is greater than the k then remove elements count 
                 // and if the count is zero then remove the element from the map since it is not in the window size anymore.
                 while (mp.size() > maxType) {
                     int removal = fruits[i];

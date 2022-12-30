@@ -25,3 +25,8 @@ class Solution {
         return false;
     }
 };
+
+int main() {
+    Solution sl;
+    cout << sl.checkValidString("(){{{{") << endl;
+}

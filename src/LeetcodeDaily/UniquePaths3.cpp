@@ -11,9 +11,8 @@ class Solution {
             return 0;
         }
 
-        // we have to take care of the cell with case 2 as well so countZero is checked for -1 not zero.
         if (grid[row][col] == 2) {
-            return countZero == -1 ? 1 : 0;
+            return countZero == 0 ? 1 : 0;
         }
 
         grid[row][col] = -1;
@@ -29,7 +28,8 @@ class Solution {
     }
 
     int uniquePathsIII(vector<vector<int>> &grid) {
-        int countZero = 0;
+        int countZero = 1; // since we should take the starting cell also in the consideration.
+        // starting x and y cordinates.
         int sx = -1;
         int sy = -1;
 

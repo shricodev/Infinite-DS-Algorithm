@@ -1,10 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// 2 approaches used.
 class Solution {
   public:
     int minimumRounds(vector<int> &tasks) {
         // we dont need the arrangement of the keys. we can complete the task in any fashion
+        // difficulty, frequency
         unordered_map<int, int> umap;
         int mini = 0;
 
@@ -12,7 +14,7 @@ class Solution {
             umap[tasks[i]]++;
         }
 
-        for (auto it : umap) {
+        for (auto &it : umap) {
             // if the task is 1 then we cannot do the work.
             if (it.second == 1)
                 return -1;
@@ -28,5 +30,29 @@ class Solution {
             }
         }
         return mini;
+    }
+
+    int minimumRoundss(vector<int> &tasks) {
+        unordered_map<int, int> mp;
+
+        for (int &x : tasks) {
+            mp[x]++;
+        }
+
+        int round = 0;
+
+        for (auto &it : mp) {
+            int count = it.second;
+
+            if (count == 1)
+                return -1;
+
+            if (count % 3 == 0)
+                round += count / 3;
+            else
+                round += count / 3 + 1;
+        }
+
+        return round;
     }
 };

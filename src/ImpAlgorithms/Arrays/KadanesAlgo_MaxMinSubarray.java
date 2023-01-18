@@ -12,30 +12,29 @@ public class KadanesAlgo_MaxMinSubarray {
     // for finding the minimum sum then instead of the max take the min.
     static int maxSubarray(int[] arr) {
 
-        int sum = 0;
+        int sum = arr[0];
         int maxi = arr[0];
 
-        for (int i = 0; i < arr.length; i++) {
+        for (int i = 1; i < arr.length; i++) {
 
-            sum = sum + arr[i];
+            sum = max(sum + arr[i], sum);
 
             maxi = Math.max(maxi, sum);
-
-            if (sum < 0) sum = 0;
         }
         return maxi;
     }
 
     static int minSubarray(int[] arr) {
 
-        int sum = 0;
-        int maxi = arr[0];
+        int sum = arr[0];
+        int mini = arr[0];
 
-        for (int i = 0; i < arr.length; i++) {
-            sum = Math.min(arr[i], sum + arr[i]);
+        for (int i = 1; i < arr.length; i++) {
+
+            sum = min(sum + arr[i], sum);
+
             maxi = Math.min(maxi, sum);
-
         }
-        return maxi;
+        return mini;
     }
 }

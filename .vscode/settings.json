@@ -1,6 +1,7 @@
 {
     "files.associations": {
-        "vector": "cpp"
+        "vector": "cpp",
+        "unordered_set": "cpp"
     },
     "workbench.colorCustomizations": {
         "activityBar.activeBackground": "#1a1a1a",

@@ -8,7 +8,6 @@ class Solution {
         int fruitsCount = 0;
         while (j < n) {
             int fruitType = fruits[j];
-
             // increase the fruits count.
             if (!mp.containsKey(fruitType)) {
                 mp.put(fruitType, 1);
